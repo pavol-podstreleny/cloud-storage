@@ -1,0 +1,18 @@
+h1 {
+  font-family: $font-heading-family;
+  font-size: $font-heading-size;
+}
+
+p,
+span,
+button,
+input,
+label,
+textarea {
+  font-family: $font-body-family;
+  font-size: $font-text-size;
+}
+
+.success {
+  background-color: #5ec624;
+}

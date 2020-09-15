@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 3.6rem;
+}
+
+p,
+span,
+button,
+input,
+label,
+textarea {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+}
+
+.success {
+  background-color: #5ec624;
+}
+
+section#authentication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90vw;
+  margin: 5vw;
+  padding: 3.6rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 1.6rem #e8e7e7;
+          box-shadow: 0 0 1.6rem #e8e7e7;
+  border-radius: 1rem;
+}
+
+@media (min-width: 540px) {
+  section#authentication {
+    width: 46rem;
+    margin: 3.6rem auto;
+  }
+}
+
+section#authentication h1 {
+  margin-bottom: 1.8rem;
+}
+
+section#authentication hr {
+  display: block;
+  border: none;
+  border-bottom: 0.1rem solid #e8e7e7;
+}
+
+section#authentication p {
+  padding: 1.8rem 0 0.2rem 0;
+  font-size: 1.6rem;
+}
+
+section#authentication form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2.2rem 0;
+}
+
+section#authentication form input[type="text"],
+section#authentication form input[type="password"] {
+  padding-left: 0.8rem;
+  height: 4.8rem;
+  border-radius: 0.4rem;
+  background-color: #f6f6f6;
+  border: none;
+  font-size: 1.8rem;
+  padding-left: 0.8rem;
+}
+
+section#authentication form span {
+  font-size: 1.6rem;
+  margin-top: 0.4rem;
+  color: #c73030;
+}
+
+section#authentication form label {
+  margin: 1.6rem 0 0.4rem;
+}
+
+section#authentication form label:first-child {
+  margin-top: 0;
+}
+
+section#authentication form button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  margin-top: 1.8rem;
+  background-color: #57d57a;
+  -webkit-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+}
+
+section#authentication form button:hover {
+  cursor: pointer;
+  background-color: #41bb64;
+}
+
+#login-error {
+  margin-top: 0;
+}
+
+body {
+  background-color: #f6f8ff;
+}
+
+#toast {
+  padding: 2.4rem;
+  text-align: center;
+}
+
+.warn {
+  background-color: #ffcb5b;
+}
+/*# sourceMappingURL=style.css.map */

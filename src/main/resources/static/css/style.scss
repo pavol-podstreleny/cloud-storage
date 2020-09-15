@@ -1,0 +1,17 @@
+@import "reset";
+@import "variables";
+@import "general";
+@import "authForm";
+
+body {
+  background-color: $background;
+}
+
+#toast {
+  padding: 2.4rem;
+  text-align: center;
+}
+
+.warn {
+  background-color: #ffcb5b;
+}

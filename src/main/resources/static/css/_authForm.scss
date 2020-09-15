@@ -1,0 +1,87 @@
+$form-shadow: 1.6rem;
+$form-shadow-color: #e8e7e7;
+$form-radius: 1rem;
+$form-error-color: #c73030;
+$form-hr-color: #e8e7e7;
+
+section#authentication {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 5vw;
+  padding: 3.6rem;
+  background-color: #fff;
+  box-shadow: 0 0 $form-shadow $form-shadow-color;
+  border-radius: $form-radius;
+
+  @media (min-width: 540px) {
+    width: 46rem;
+    margin: 3.6rem auto;
+  }
+
+  h1 {
+    margin-bottom: 1.8rem;
+  }
+
+  hr {
+    display: block;
+    border: none;
+    border-bottom: 0.1rem solid $form-hr-color;
+  }
+
+  p {
+    padding: 1.8rem 0 0.2rem 0;
+    font-size: 1.6rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem 0;
+
+    input[type="text"],
+    input[type="password"] {
+      padding-left: 0.8rem;
+      height: 4.8rem;
+      border-radius: 0.4rem;
+      background-color: #f6f6f6;
+      border: none;
+      font-size: 1.8rem;
+      padding-left: 0.8rem;
+    }
+
+    span {
+      font-size: 1.6rem;
+      margin-top: 0.4rem;
+      color: $form-error-color;
+    }
+
+    label {
+      margin: 1.6rem 0 0.4rem;
+    }
+
+    label:first-child {
+      margin-top: 0;
+    }
+
+    button {
+      align-self: center;
+      padding: 1.2rem 2.4rem;
+      border: none;
+      font-size: 1.8rem;
+      color: #fff;
+      border-radius: 0.4rem;
+      margin-top: 1.8rem;
+      background-color: #57d57a;
+      transition: background-color 0.6s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #41bb64;
+      }
+    }
+  }
+}
+#login-error {
+  margin-top: 0;
+}
