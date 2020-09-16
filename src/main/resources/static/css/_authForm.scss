@@ -34,6 +34,14 @@ section#authentication {
     font-size: 1.6rem;
   }
 
+  #toast {
+    padding: 2.4rem;
+    border-radius: 0.4rem;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1.8rem;
+  }
+
   form {
     display: flex;
     flex-direction: column;

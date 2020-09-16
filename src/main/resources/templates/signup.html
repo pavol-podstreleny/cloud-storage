@@ -17,6 +17,7 @@
           <h1>Sign Up</h1>
           <hr />
           <form th:action="@{/signup}" method="POST" th:object="${user}">
+            <span id="login-error" th:if="${errorUndefined}" th:text="${errorUndefined}">Error</span>
             <label for="firstname">First Name</label>
             <input type="text" name="firstName" th:field="*{firstName}" id="firstname" required>
             <span th:if="@{#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error message</span>
@@ -25,6 +26,7 @@
             <span th:if="@{#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error message</span>
             <label for="username">Username</label>
             <input type="text" name="username" th:field="*{username}" id="username" required/>
+            <span th:if="${errorUserExists}" th:text="${errorUserExists}">Error user exists</span>
             <span th:if="@{#fields.hasErrors('username')}" th:errors="*{username}">Error message</span>
             <label for="password">Password</label>  
             <input type="password" name="password" th:field="*{password}" id="password" required>
