@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sign Up into Personal Storage" />
+    <meta name="robots" content="follow,index" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <main>
+        <p id="toast" class="warn">
+          This website serves just for demonstration purposes. Your registered account will be deleted after you log out.
+        </p>
+        <section id="authentication">
+          <h1>Sign Up</h1>
+          <hr />
+          <form th:action="@{/signup}" method="POST" th:object="${user}">
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstName" th:field="*{firstName}" id="firstname" required>
+            <span th:if="@{#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error message</span>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastName" th:field="*{lastName}" id="lastname">
+            <span th:if="@{#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error message</span>
+            <label for="username">Username</label>
+            <input type="text" name="username" th:field="*{username}" id="username" required/>
+            <span th:if="@{#fields.hasErrors('username')}" th:errors="*{username}">Error message</span>
+            <label for="password">Password</label>  
+            <input type="password" name="password" th:field="*{password}" id="password" required>
+            <span th:if="@{#fields.hasErrors('password')}" th:errors="*{password}">Error message</span>
+            <button type="submit">Sign Up</button>
+          </form>
+          <hr />
+          <p>Return back to <a th:href="@{/login}"/> Login </a> page</p>
+        </section>
+      </main>
+  </body>
+</html>

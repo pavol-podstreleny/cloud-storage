@@ -99,10 +99,6 @@ section#authentication form label {
   margin: 1.6rem 0 0.4rem;
 }
 
-section#authentication form label:first-child {
-  margin-top: 0;
-}
-
 section#authentication form button {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
