@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal files" />
+    <meta name="robots" content="unfollow,no-index" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title>Personal Notes</title>
+  </head>
+  <body>
+    <header>
+      <div id="navigation">
+        <div id="logo">
+          <h1>Personal Storage</h1>
+          <img th:src="@{'/img/logo.svg'}" alt="Logo" tabindex="0" />
+        </div>
+        <img id="menu-icon" th:src="@{'/img/menu.svg'}" alt="Menu" />
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a th:href="@{/files}"><span id="file">Files</span></a>
+            </li>
+            <li>
+              <a href="#" id="selected"><span id="note">Notes</span></a>
+            </li>
+            <li>
+              <a href="#"><span id="credential">Credentials</span></a>
+            </li>
+            <li>
+              <a href="#"><span id="logout">Logout</span></a>
+            </li>
+          </ul>
+          <img
+            id="menu-close-icon"
+            th:src="@{'/img/menu-close.svg'}"
+            alt="Close Menu"
+            tabindex="0"
+          />
+        </nav>
+      </div>
+    </header>
+    <p
+      class="toast success"
+      th:if="${messageSuccess}"
+      th:text="${messageSuccess}"
+    >
+      Success
+    </p>
+    <p class="toast error" th:if="${messageFail}" th:text="${messageFail}">
+      FAIL
+    </p>
+    <main>
+      <section id="data-section" th:if="${not #lists.isEmpty(notes)}">
+        <h1>Created Notes</h1>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Owner</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="item : ${notes}">
+                <td th:text="${item.title}">Image-skuska.png</td>
+                <td th:text="${item.description}">12/12/2020</td>
+                <td th:text="${user}">Palino</td>
+                <td class="edit">
+                  <a th:href="@{'/notes/' + ${item.id}}">Edit</a>
+                </td>
+                <td class="delete">
+                  <a
+                    href="#"
+                    th:data-delete="${item.id}"
+                    th:data-name="${item.title}"
+                    class="data-delete"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <div class="deletion hide">
+      <section id="form">
+        <h1>Deletion</h1>
+        <hr />
+        <p>Are you sure you want to delete <b id="fileIDSpan"></b> note?</p>
+        <form th:action="@{/files/delete}" method="POST">
+          <input type="text" name="fileID" id="fileID" hidden />
+          <div id="buttons">
+            <button type="submit" id="approve">Delete</button>
+            <button id="cancel">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script th:src="@{/js/main.js}"></script>
+  </body>
+</html>
