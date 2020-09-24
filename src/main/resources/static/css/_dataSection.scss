@@ -1,0 +1,85 @@
+#data-section {
+  @media screen and (min-width: 1024px) {
+    @include center();
+    margin-top: 2.4rem;
+  }
+
+  margin: 2.4rem 0;
+
+  div {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 1.8rem;
+    margin: 1.6rem 0;
+    padding: 0px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 1rem;
+    @include box-shadow($form-shadow, $form-shadow-color);
+    width: 100%;
+
+    thead {
+      background: #663ac0;
+      color: #e3e3e3;
+      font-weight: 100;
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #e3e3e3;
+        &:last-child {
+          border-bottom: none;
+        }
+        &:hover {
+          background: #f2f2f2;
+        }
+      }
+    }
+
+    th {
+      text-align: center;
+      padding: 1.6rem;
+
+      &:first-child {
+        border-top-left-radius: 1rem;
+      }
+
+      &:last-child {
+        border-top-right-radius: 1rem;
+      }
+    }
+
+    td {
+      padding: 0 1.6rem;
+      text-align: center;
+
+      a {
+        display: block;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .download {
+    background: url("../img/download.svg") no-repeat center;
+  }
+
+  .delete {
+    background: url("../img/delete.svg") no-repeat center;
+  }
+
+  .download,
+  .delete {
+    width: 4.8rem;
+    height: 4.8rem;
+    text-indent: -9999rem;
+    background-size: 2.4rem;
+  }
+}
+#uploadFile {
+  display: none;
+}

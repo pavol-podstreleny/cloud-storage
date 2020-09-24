@@ -1,0 +1,9 @@
+@mixin box-shadow($form-shadow, $form-shadow-color) {
+  box-shadow: 0 0 $form-shadow $form-shadow-color;
+}
+
+@mixin center() {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

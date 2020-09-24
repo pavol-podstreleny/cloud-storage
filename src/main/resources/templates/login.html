@@ -9,27 +9,27 @@
     <title>Login</title>
   </head>
   <body>
-    <main>
       <p id="toast" class="warn">
         This website serves just for demonstration purposes. Your registered account will be deleted after you log out.
       </p>
-      <section id="authentication">
-        <p id="toast" class="success" th:if="${signupSuccess}">
-          Your account was sucessfully created.
-        </p>
-        <h1>Login</h1>
-        <hr />
-        <form th:action="@{/login}" method="POST">
-          <span id="login-error" th:if="${param.error}">The username or password is incorrect.</span>
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" />
-          <label for="password">Password</label>  
-          <input type="password" name="password" id="password">
-          <button type="submit">Login</button>
-        </form>
-        <hr />
-        <p>Do not have accout yet? <a th:href="@{/signup}"/> Sign Up </a></p>
-      </section>
-    </main>
+      <main>
+        <section id="form">
+          <p id="toast" class="success" th:if="${signupSuccess}">
+            Your account was sucessfully created.
+          </p>
+          <h1>Login</h1>
+          <hr />
+          <form th:action="@{/login}" method="POST">
+            <span id="login-error" th:if="${param.error}">The username or password is incorrect.</span>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" />
+            <label for="password">Password</label>  
+            <input type="password" name="password" id="password">
+            <button type="submit">Login</button>
+          </form>
+          <hr />
+          <p>Do not have accout yet? <a th:href="@{/signup}"/> Sign Up </a></p>
+        </section>
+      </main>
   </body>
 </html>

@@ -9,11 +9,11 @@
     <title>Sign Up</title>
   </head>
   <body>
+    <p id="toast" class="warn">
+      This website serves just for demonstration purposes. Your registered account will be deleted after you log out.
+    </p>
     <main>
-        <p id="toast" class="warn">
-          This website serves just for demonstration purposes. Your registered account will be deleted after you log out.
-        </p>
-        <section id="authentication">
+        <section id="form">
           <h1>Sign Up</h1>
           <hr />
           <form th:action="@{/signup}" method="POST" th:object="${user}">

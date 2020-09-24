@@ -8,11 +8,122 @@ span,
 button,
 input,
 label,
-textarea {
+textarea,
+table {
   font-family: $font-body-family;
   font-size: $font-text-size;
 }
 
+main {
+  margin: 2.4rem;
+}
+
+/** TOAST STYLES **/
+.toast {
+  display: block;
+  padding: 2.4rem;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  transition: padding 0.6s ease;
+  text-align: center;
+}
+
+.warn {
+  color: #000;
+}
+
 .success {
   background-color: #57d57a;
+  color: #fff;
+}
+
+.error {
+  background-color: #d42327;
+  color: #fff;
+}
+
+.close-button {
+  background-color: #4591d7;
+  color: #fff;
+}
+
+.close {
+  height: 0px;
+  font-size: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.hide {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  button,
+  #upload-label {
+    align-self: center;
+    padding: 1.2rem 2.4rem;
+    border: none;
+    font-size: 1.8rem;
+    color: #fff;
+    border-radius: 0.4rem;
+    background-color: #57d57a;
+    transition: background-color 0.6s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #41bb64;
+    }
+  }
+}
+
+#drag-and-drop {
+  border: 2px dashed #8993b4;
+  padding: 5.6rem;
+}
+
+.deletion {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba($color: #000000, $alpha: 0.7);
+  height: 100vh;
+  width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+
+  #form {
+    box-shadow: none;
+  }
+
+  #buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-items: flex-end;
+
+    button {
+      margin-top: 0px;
+      margin-left: 1.6rem;
+    }
+
+    #cancel {
+      background-color: #4591d7;
+
+      &:hover {
+        background-color: #266bac;
+      }
+    }
+
+    #approve {
+      background-color: #d42327;
+      &:hover {
+        background-color: #b31518;
+      }
+    }
+  }
 }

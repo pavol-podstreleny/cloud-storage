@@ -19,16 +19,59 @@ span,
 button,
 input,
 label,
-textarea {
+textarea,
+table {
   font-family: "Quicksand", sans-serif;
   font-size: 1.8rem;
 }
 
-.success {
-  background-color: #57d57a;
+main {
+  margin: 2.4rem;
 }
 
-section#authentication {
+/** TOAST STYLES **/
+.toast {
+  display: block;
+  padding: 2.4rem;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  -webkit-transition: padding 0.6s ease;
+  transition: padding 0.6s ease;
+  text-align: center;
+}
+
+.warn {
+  color: #000;
+}
+
+.success {
+  background-color: #57d57a;
+  color: #fff;
+}
+
+.error {
+  background-color: #d42327;
+  color: #fff;
+}
+
+.close-button {
+  background-color: #4591d7;
+  color: #fff;
+}
+
+.close {
+  height: 0px;
+  font-size: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.hide {
+  display: none;
+}
+
+form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,8 +79,94 @@ section#authentication {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90vw;
-  margin: 5vw;
+}
+
+form button,
+form #upload-label {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  background-color: #57d57a;
+  -webkit-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+}
+
+form button:hover,
+form #upload-label:hover {
+  cursor: pointer;
+  background-color: #41bb64;
+}
+
+#drag-and-drop {
+  border: 2px dashed #8993b4;
+  padding: 5.6rem;
+}
+
+.deletion {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.deletion #form {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.deletion #buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  justify-items: flex-end;
+}
+
+.deletion #buttons button {
+  margin-top: 0px;
+  margin-left: 1.6rem;
+}
+
+.deletion #buttons #cancel {
+  background-color: #4591d7;
+}
+
+.deletion #buttons #cancel:hover {
+  background-color: #266bac;
+}
+
+.deletion #buttons #approve {
+  background-color: #d42327;
+}
+
+.deletion #buttons #approve:hover {
+  background-color: #b31518;
+}
+
+section#form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
   padding: 3.6rem;
   background-color: #fff;
   -webkit-box-shadow: 0 0 1.6rem #e8e7e7;
@@ -46,36 +175,32 @@ section#authentication {
 }
 
 @media (min-width: 540px) {
-  section#authentication {
+  section#form {
     width: 46rem;
     margin: 3.6rem auto;
   }
 }
 
-section#authentication h1 {
+section#form h1 {
   margin-bottom: 1.8rem;
 }
 
-section#authentication hr {
+section#form hr {
   display: block;
   border: none;
   border-bottom: 0.1rem solid #e8e7e7;
 }
 
-section#authentication p {
+section#form p {
   padding: 1.8rem 0 0.2rem 0;
   font-size: 1.6rem;
 }
 
-section#authentication #toast {
-  padding: 2.4rem;
-  border-radius: 0.4rem;
-  font-size: 1.8rem;
-  color: #fff;
-  margin-bottom: 1.8rem;
+section#form button {
+  margin-top: 1.8rem;
 }
 
-section#authentication form {
+section#form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,8 +211,8 @@ section#authentication form {
   padding: 2.2rem 0;
 }
 
-section#authentication form input[type="text"],
-section#authentication form input[type="password"] {
+section#form form input[type="text"],
+section#form form input[type="password"] {
   padding-left: 0.8rem;
   height: 4.8rem;
   border-radius: 0.4rem;
@@ -97,38 +222,328 @@ section#authentication form input[type="password"] {
   padding-left: 0.8rem;
 }
 
-section#authentication form span {
+section#form form span {
   font-size: 1.6rem;
   margin-top: 0.4rem;
   color: #c73030;
 }
 
-section#authentication form label {
+section#form form label {
   margin: 1.6rem 0 0.4rem;
-}
-
-section#authentication form button {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  padding: 1.2rem 2.4rem;
-  border: none;
-  font-size: 1.8rem;
-  color: #fff;
-  border-radius: 0.4rem;
-  margin-top: 1.8rem;
-  background-color: #57d57a;
-  -webkit-transition: background-color 0.6s;
-  transition: background-color 0.6s;
-}
-
-section#authentication form button:hover {
-  cursor: pointer;
-  background-color: #41bb64;
 }
 
 #login-error {
   margin-top: 0;
+}
+
+header {
+  width: 100%;
+  background: #fff;
+  -webkit-box-shadow: 0 0 1.6rem #e8e7e7;
+          box-shadow: 0 0 1.6rem #e8e7e7;
+}
+
+#navigation {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 12px 24px;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #navigation {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+#navigation .main-nav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation .main-nav {
+    position: relative;
+    height: auto;
+    width: auto;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    background-color: #fff;
+  }
+}
+
+#navigation a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 2.4rem;
+  margin-top: 1.8rem;
+  color: #fff;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation a {
+    padding: 24px 16px;
+    margin: 0px 0px 0px 8px;
+    color: #4a5678;
+    border-bottom: 2px solid #fff;
+    -webkit-transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease;
+  }
+  #navigation a:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+  #navigation a:hover #file {
+    background: url("../img/file-hover.svg") no-repeat center left;
+  }
+  #navigation a:hover #note {
+    background: url("../img/note-hover.svg") no-repeat center left;
+  }
+  #navigation a:hover #credential {
+    background: url("../img/credential-hover.svg") no-repeat center left;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #navigation #selected {
+    border-bottom: 2px solid #000;
+    color: #000;
+  }
+  #navigation #selected #file {
+    background: url("../img/file-hover.svg") no-repeat center left;
+  }
+  #navigation #selected #note {
+    background: url("../img/note-hover.svg") no-repeat center left;
+  }
+  #navigation #selected #credential {
+    background: url("../img/credential-hover.svg") no-repeat center left;
+  }
+}
+
+#navigation ul {
+  padding-top: 5.9rem;
+  list-style-type: none;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation ul {
+    padding: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #navigation span::before {
+    content: "";
+    display: inline;
+    padding-left: 24px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #navigation #file {
+    background: url("../img/file-grey.svg") no-repeat center left;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #navigation #note {
+    background: url("../img/note-grey.svg") no-repeat center left;
+  }
+}
+
+#navigation #logout::before {
+  padding-left: 0px;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation #credential {
+    background: url("../img/credential-grey.svg") no-repeat center left;
+  }
+}
+
+#navigation .open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#navigation #logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#navigation #logo h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-left: 0.8rem;
+}
+
+#navigation #logo img {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+
+#navigation #logo h1 {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#navigation #menu-icon,
+#navigation #menu-close-icon {
+  width: 48px;
+  height: 48px;
+}
+
+#navigation #menu-icon:hover,
+#navigation #menu-close-icon:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  #navigation #menu-icon,
+  #navigation #menu-close-icon {
+    display: none;
+  }
+}
+
+#navigation #menu-close-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+#data-section {
+  margin: 2.4rem 0;
+}
+
+@media screen and (min-width: 1024px) {
+  #data-section {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
+    margin-top: 2.4rem;
+  }
+}
+
+#data-section div {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#data-section table {
+  font-size: 1.8rem;
+  margin: 1.6rem 0;
+  padding: 0px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0 1.6rem #e8e7e7;
+          box-shadow: 0 0 1.6rem #e8e7e7;
+  width: 100%;
+}
+
+#data-section table thead {
+  background: #663ac0;
+  color: #e3e3e3;
+  font-weight: 100;
+}
+
+#data-section table tbody tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+#data-section table tbody tr:last-child {
+  border-bottom: none;
+}
+
+#data-section table tbody tr:hover {
+  background: #f2f2f2;
+}
+
+#data-section table th {
+  text-align: center;
+  padding: 1.6rem;
+}
+
+#data-section table th:first-child {
+  border-top-left-radius: 1rem;
+}
+
+#data-section table th:last-child {
+  border-top-right-radius: 1rem;
+}
+
+#data-section table td {
+  padding: 0 1.6rem;
+  text-align: center;
+}
+
+#data-section table td a {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+
+#data-section .download {
+  background: url("../img/download.svg") no-repeat center;
+}
+
+#data-section .delete {
+  background: url("../img/delete.svg") no-repeat center;
+}
+
+#data-section .download,
+#data-section .delete {
+  width: 4.8rem;
+  height: 4.8rem;
+  text-indent: -9999rem;
+  background-size: 2.4rem;
+}
+
+#uploadFile {
+  display: none;
 }
 
 body {

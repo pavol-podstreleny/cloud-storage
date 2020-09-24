@@ -1,7 +1,10 @@
+@import "mixins";
 @import "reset";
 @import "variables";
 @import "general";
-@import "authForm";
+@import "form";
+@import "navigation";
+@import "dataSection";
 
 body {
   background-color: $background;

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #341279;
+      }
+
+      .cls-2 {
+        fill: #663ac0;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_1_copy" data-name="Rounded Rectangle 1 copy" class="cls-1" x="2" y="2" width="40" height="40" rx="10" ry="10"/>
+  <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-2" x="1" y="1" width="40" height="40" rx="10" ry="10"/>
+</svg>
