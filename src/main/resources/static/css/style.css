@@ -14,6 +14,11 @@ h1 {
   font-size: 3.6rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+a,
 p,
 span,
 button,
@@ -81,8 +86,8 @@ form {
           flex-direction: column;
 }
 
-form button,
-form #upload-label {
+button,
+#upload-label {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -96,8 +101,8 @@ form #upload-label {
   transition: background-color 0.6s;
 }
 
-form button:hover,
-form #upload-label:hover {
+button:hover,
+#upload-label:hover {
   cursor: pointer;
   background-color: #41bb64;
 }
@@ -158,6 +163,30 @@ form #upload-label:hover {
   background-color: #b31518;
 }
 
+#note-section {
+  padding: 0 24px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  #note-section {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+#note-section a {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
 section#form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -212,14 +241,21 @@ section#form form {
 }
 
 section#form form input[type="text"],
-section#form form input[type="password"] {
+section#form form input[type="password"],
+section#form form textarea {
   padding-left: 0.8rem;
   height: 4.8rem;
   border-radius: 0.4rem;
   background-color: #f6f6f6;
   border: none;
   font-size: 1.8rem;
-  padding-left: 0.8rem;
+}
+
+section#form form textarea {
+  resize: vertical;
+  height: 16rem;
+  margin-bottom: 2.4rem;
+  padding-top: 0.8rem;
 }
 
 section#form form span {

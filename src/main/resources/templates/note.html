@@ -8,6 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <title>Personal Notes</title>
   </head>
+
   <body>
     <header>
       <div id="navigation">
@@ -51,56 +52,74 @@
       FAIL
     </p>
     <main>
-      <section id="data-section" th:if="${not #lists.isEmpty(notes)}">
-        <h1>Created Notes</h1>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Owner</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each="item : ${notes}">
-                <td th:text="${item.title}">Image-skuska.png</td>
-                <td th:text="${item.description}">12/12/2020</td>
-                <td th:text="${user}">Palino</td>
-                <td class="edit">
-                  <a th:href="@{'/notes/' + ${item.id}}">Edit</a>
-                </td>
-                <td class="delete">
-                  <a
-                    href="#"
-                    th:data-delete="${item.id}"
-                    th:data-name="${item.title}"
-                    class="data-delete"
-                    >Delete</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <div id="note-section">
+        <a href="#" id="upload-label" class="create-note">Create note</a>
+        <section id="data-section" th:if="${not #lists.isEmpty(notes)}">
+          <h1>Created Notes</h1>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Owner</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="item : ${notes}">
+                  <td th:text="${item.title}">Image-skuska.png</td>
+                  <td th:text="${item.description}">12/12/2020</td>
+                  <td th:text="${user}">Palino</td>
+                  <td class="edit">
+                    <a th:href="@{'/notes/' + ${item.id}}">Edit</a>
+                  </td>
+                  <td class="delete">
+                    <a
+                      href="#"
+                      th:data-delete="${item.id}"
+                      th:data-name="${item.title}"
+                      class="data-delete"
+                      >Delete</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
     <div class="deletion hide">
       <section id="form">
-        <h1>Deletion</h1>
+        <h1>Create Note</h1>
         <hr />
-        <p>Are you sure you want to delete <b id="fileIDSpan"></b> note?</p>
-        <form th:action="@{/files/delete}" method="POST">
-          <input type="text" name="fileID" id="fileID" hidden />
+        <form th:action="@{/notes}" method="POST">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            required
+            minlength="3"
+            maxlength="250"
+          />
+          <label for="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            required
+            minlength="3"
+            maxlength="250"
+          ></textarea>
           <div id="buttons">
-            <button type="submit" id="approve">Delete</button>
+            <button type="submit">Create</button>
             <button id="cancel">Cancel</button>
           </div>
         </form>
       </section>
     </div>
-    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/notes.js}"></script>
   </body>
 </html>
