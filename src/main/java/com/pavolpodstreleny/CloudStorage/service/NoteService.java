@@ -15,10 +15,6 @@ public class NoteService {
     @Autowired
     private NoteMapper noteMapper;
 
-    public NoteService(NoteMapper noteMapper) {
-        this.noteMapper = noteMapper;
-    }
-
     public List<Note> provideNotes(int userId) {
         return noteMapper.getNotes(userId);
     }

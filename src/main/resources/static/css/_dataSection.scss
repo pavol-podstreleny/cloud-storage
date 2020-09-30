@@ -72,7 +72,12 @@
     background: url("../img/delete.svg") no-repeat center;
   }
 
+  .edit {
+    background: url("../img/edit.svg") no-repeat center;
+  }
+
   .download,
+  .edit,
   .delete {
     width: 4.8rem;
     height: 4.8rem;

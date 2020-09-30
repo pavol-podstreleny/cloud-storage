@@ -91,7 +91,11 @@ button,
   padding: 5.6rem;
 }
 
-.deletion {
+#hide {
+  display: none;
+}
+
+.form-focus {
   position: fixed;
   left: 0;
   top: 0;

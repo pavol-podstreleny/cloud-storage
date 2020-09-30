@@ -73,13 +73,20 @@
                   <td th:text="${item.description}">12/12/2020</td>
                   <td th:text="${user}">Palino</td>
                   <td class="edit">
-                    <a th:href="@{'/notes/' + ${item.id}}">Edit</a>
+                    <a
+                      href="#"
+                      th:data-edit-id="${item.id}"
+                      th:data-edit-title="${item.title}"
+                      th:data-edit-description="${item.description}"
+                      class="data-edit"
+                      >Edit</a
+                    >
                   </td>
                   <td class="delete">
                     <a
                       href="#"
-                      th:data-delete="${item.id}"
-                      th:data-name="${item.title}"
+                      th:data-delete-id="${item.id}"
+                      th:data-delete-item="${item.title}"
                       class="data-delete"
                       >Delete</a
                     >
@@ -91,35 +98,66 @@
         </section>
       </div>
     </main>
-    <div class="deletion hide">
+    <div class="form-focus edit-note hide">
       <section id="form">
-        <h1>Create Note</h1>
+        <h1 id="note-heading">Create Note</h1>
         <hr />
-        <form th:action="@{/notes}" method="POST">
+        <form
+          th:action="@{/notes}"
+          method="POST"
+          th:object="${noteForm}"
+          th:classappend="${#fields.hasErrors()} ? error-note : no-error"
+        >
+          <input type="text" name="id" id="id" th:value="*{id}" hidden />
           <label for="title">Title</label>
           <input
             type="text"
+            th:value="*{title}"
             name="title"
             id="title"
             required
-            minlength="3"
-            maxlength="250"
           />
+          <span
+            th:if="${#fields.hasErrors('title')}"
+            th:errors="*{title}"
+            id="error-title"
+            >Error title</span
+          >
           <label for="description">Description</label>
           <textarea
+            th:value="*{description}"
+            th:text="*{description}"
             name="description"
             id="description"
             required
-            minlength="3"
-            maxlength="250"
           ></textarea>
+          <span
+            th:if="${#fields.hasErrors('description')}"
+            th:errors="*{description}"
+            id="error-description"
+            >Error description</span
+          >
           <div id="buttons">
-            <button type="submit">Create</button>
+            <button type="submit" id="submit">Create</button>
             <button id="cancel">Cancel</button>
           </div>
         </form>
       </section>
     </div>
-    <script th:src="@{/js/notes.js}"></script>
+    <div class="form-focus hide" id="delete-dialog">
+      <section id="form">
+        <h1>Deletion</h1>
+        <hr />
+        <p>Are you sure you want to delete <b id="actual-item"></b> note?</p>
+        <form th:action="@{/notes/delete}" method="POST">
+          <input type="text" name="noteId" id="itemid" hidden />
+          <div id="buttons">
+            <button type="submit" id="approve">Delete</button>
+            <button id="cancel-deletion">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script th:src="@{/js/notes.js}" type="module"></script>
   </body>
 </html>

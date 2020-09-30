@@ -47,7 +47,7 @@ if (toast != null) {
 }
 
 // Deletion box
-const wholeBackground = document.getElementsByClassName("deletion")[0];
+const wholeBackground = document.getElementsByClassName("form-focus")[0];
 const cancelButton = document.getElementById("cancel");
 cancelButton.addEventListener("click", (e) => {
   e.preventDefault();

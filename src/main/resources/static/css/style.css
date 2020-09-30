@@ -112,7 +112,11 @@ button:hover,
   padding: 5.6rem;
 }
 
-.deletion {
+#hide {
+  display: none;
+}
+
+.form-focus {
   position: fixed;
   left: 0;
   top: 0;
@@ -123,12 +127,12 @@ button:hover,
   overflow-y: auto;
 }
 
-.deletion #form {
+.form-focus #form {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.deletion #buttons {
+.form-focus #buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,24 +146,24 @@ button:hover,
   justify-items: flex-end;
 }
 
-.deletion #buttons button {
+.form-focus #buttons button {
   margin-top: 0px;
   margin-left: 1.6rem;
 }
 
-.deletion #buttons #cancel {
+.form-focus #buttons #cancel {
   background-color: #4591d7;
 }
 
-.deletion #buttons #cancel:hover {
+.form-focus #buttons #cancel:hover {
   background-color: #266bac;
 }
 
-.deletion #buttons #approve {
+.form-focus #buttons #approve {
   background-color: #d42327;
 }
 
-.deletion #buttons #approve:hover {
+.form-focus #buttons #approve:hover {
   background-color: #b31518;
 }
 
@@ -570,7 +574,12 @@ header {
   background: url("../img/delete.svg") no-repeat center;
 }
 
+#data-section .edit {
+  background: url("../img/edit.svg") no-repeat center;
+}
+
 #data-section .download,
+#data-section .edit,
 #data-section .delete {
   width: 4.8rem;
   height: 4.8rem;
