@@ -1,18 +1,12 @@
-const menu = document.getElementById("menu-icon");
-const closeMenu = document.getElementById("menu-close-icon");
-const nav = document.getElementsByClassName("main-nav")[0];
-
-menu.addEventListener("click", (e) => {
-  nav.classList.toggle("open");
-  e.stopPropagation();
-});
-
-closeMenu.addEventListener("click", (e) => {
-  nav.classList.toggle("open");
-  e.stopPropagation();
-});
+import Menu from "./menu.js";
+import Toast from "./toast.js";
+import DeletionDialog from "./delete-dialog.js";
 
 /* FILE LOADING */
+
+const menu = new Menu();
+const toast = new Toast();
+const deletionDialog = new DeletionDialog();
 
 const submitButton = document.getElementById("submit-button");
 const uploadFileInput = document.getElementById("uploadFile");
@@ -36,28 +30,6 @@ dropArea.addEventListener("drop", (event) => {
   submitButton.click();
 });
 
-// Hide the toast showing the error / success after few seconds
-
-const toast = document.getElementsByClassName("toast");
-if (toast != null) {
-  setTimeout(() => {
-    console.log("Fired");
-    toast[0].classList.toggle("close");
-  }, 3000);
-}
-
-// Deletion box
-const wholeBackground = document.getElementsByClassName("form-focus")[0];
-const cancelButton = document.getElementById("cancel");
-cancelButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  wholeBackground.classList.toggle("hide");
-});
-
-const fileIDInput = document.getElementById("fileID");
-const fileIDSpan = document.getElementById("fileIDSpan");
-
 // Delete data table click
 const allData = document.getElementsByClassName("data-delete");
 if (allData != null) {
@@ -65,12 +37,9 @@ if (allData != null) {
     allData[i].addEventListener("click", (e) => {
       const file_id = e.target.getAttribute("data-delete");
       const file_name = e.target.getAttribute("data-name");
-      wholeBackground.classList.toggle("hide");
-
-      if (fileIDInput != null && fileIDSpan != null) {
-        fileIDInput.value = file_id;
-        fileIDSpan.innerHTML = file_name;
-      }
+      deletionDialog.toggleVisibility();
+      deletionDialog.setItemId(file_id);
+      deletionDialog.setActualItem(file_name);
     });
   }
 }

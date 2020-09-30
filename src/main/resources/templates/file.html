@@ -104,20 +104,20 @@
         </div>
       </section>
     </main>
-    <div class="deletion hide">
+    <div class="form-focus hide" id="delete-dialog">
       <section id="form">
         <h1>Deletion</h1>
         <hr />
-        <p>Are you sure you want to delete <b id="fileIDSpan"></b> file?</p>
+        <p>Are you sure you want to delete <b id="actual-item"></b> file?</p>
         <form th:action="@{/files/delete}" method="POST">
-          <input type="text" name="fileID" id="fileID" hidden />
+          <input type="text" name="fileID" id="itemid" hidden />
           <div id="buttons">
             <button type="submit" id="approve">Delete</button>
-            <button id="cancel">Cancel</button>
+            <button id="cancel-deletion">Cancel</button>
           </div>
         </form>
       </section>
     </div>
-    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/main.js}" type="module"></script>
   </body>
 </html>
