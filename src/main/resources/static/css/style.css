@@ -168,8 +168,8 @@ button:hover,
   background-color: #b31518;
 }
 
-#note-section {
-  padding: 0 24px;
+#note-section,
+#credential-section {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,15 +181,18 @@ button:hover,
 }
 
 @media screen and (min-width: 1024px) {
-  #note-section {
+  #note-section,
+  #credential-section {
     width: 1024px;
     margin: 0 auto;
   }
 }
 
-#note-section a {
+#note-section #upload-label,
+#credential-section #upload-label {
   -ms-flex-item-align: end;
       align-self: flex-end;
+  margin-right: 2.4rem;
 }
 
 section#form {
