@@ -19,10 +19,12 @@ public class CredentialController {
 
     @GetMapping
     public String getNotesView(Principal principal, Model model, @ModelAttribute CredentialForm credentialForm) {
-        List<Credential> notes = new ArrayList<Credential>();
-        model.addAttribute("credential", notes);
+        List<Credential> credentials = new ArrayList<Credential>();
+        credentials.add(new Credential(1, "http://skuska.sk", "Palo", "key", "Super password", 1));
+        model.addAttribute("credentials", credentials);
         model.addAttribute("user", principal.getName());
         return "credential";
+
     }
 
 }
