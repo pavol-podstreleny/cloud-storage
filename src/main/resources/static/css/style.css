@@ -5,7 +5,8 @@
           box-sizing: border-box;
 }
 
-html {
+html,
+body {
   font-size: 62.5%;
 }
 
@@ -491,6 +492,10 @@ header {
   position: absolute;
   top: 24px;
   right: 24px;
+}
+
+.login-toast {
+  margin-bottom: 16px;
 }
 
 #data-section {

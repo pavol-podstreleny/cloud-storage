@@ -14,9 +14,9 @@
       </p>
       <main>
         <section id="form">
-          <p id="toast" class="success" th:if="${signupSuccess}">
-            Your account was sucessfully created.
-          </p>
+          <span id="toast" class="success login-toast" th:if="${signupSuccess}">
+            Your account was successfully created.
+          </span>
           <h1>Login</h1>
           <hr />
           <form th:action="@{/login}" method="POST">
@@ -28,7 +28,7 @@
             <button type="submit">Login</button>
           </form>
           <hr />
-          <p>Do not have accout yet? <a th:href="@{/signup}"/> Sign Up </a></p>
+          <p>Do you not have an account yet? <a th:href="@{/signup}"/> Sign Up </a></p>
         </section>
       </main>
   </body>
