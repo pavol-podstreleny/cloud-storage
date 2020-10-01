@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -37,6 +38,24 @@ public class CredentialController {
         model.addAttribute("credentials", credentials);
         model.addAttribute("user", principal.getName());
         return "credential";
+    }
+
+    @PostMapping("delete")
+    public String deleteNotePage(@RequestParam Integer credentialId, RedirectAttributes redirectAttributes,
+            Principal principal) {
+        int userId = userService.getCurrentUserId(principal);
+        Credential credential = credentialService.provideCredential(userId, credentialId);
+        if (credential != null) {
+            final int dbFileId = credentialService.removeCredential(credentialId);
+            if (dbFileId == -1) {
+                redirectAttributes.addFlashAttribute("messageFail", "Problem occurred while deleting credential!");
+            } else {
+                redirectAttributes.addFlashAttribute("messageSuccess", "You successfully deleted credential!");
+            }
+        } else {
+            redirectAttributes.addFlashAttribute("messageFail", "You are not allowed to delete this credential!");
+        }
+        return "redirect:/credentials";
     }
 
     @PostMapping
