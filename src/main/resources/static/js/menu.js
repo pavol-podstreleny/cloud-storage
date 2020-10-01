@@ -10,7 +10,7 @@ export default class Menu {
     });
 
     this.mainNavigation.addEventListener("click", (e) => {
-      this.mainNavigation.toggle("open");
+      this.mainNavigation.classList.toggle("open");
       e.stopPropagation();
     });
   }
