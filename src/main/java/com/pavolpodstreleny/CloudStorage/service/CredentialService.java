@@ -40,7 +40,7 @@ public class CredentialService {
         Credential credential = provideCredential(credentialForm.getUserId(), credentialForm.getId());
         if (credential == null)
             return -1;
-        credential.setUserName(credentialForm.getUserName());
+        credential.setUserName(credentialForm.getUsername());
         credential.setUrl(credentialForm.getUrl());
         credential.setPasswordEncrypted(
                 encryptionService.encryptValue(credentialForm.getPassword(), credential.getKey()));
@@ -51,7 +51,7 @@ public class CredentialService {
         // Generate encoded key
         String encodedKey = generateEncodedKey();
         String encryptedPassword = encryptionService.encryptValue(credentialForm.getPassword(), encodedKey);
-        Credential credential = new Credential(credentialForm.getUrl(), credentialForm.getUserName(), encodedKey,
+        Credential credential = new Credential(credentialForm.getUrl(), credentialForm.getUsername(), encodedKey,
                 encryptedPassword, credentialForm.getUserId());
         return credentialMapper.insert(credential);
     }
