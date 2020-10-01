@@ -33,8 +33,7 @@ public class CredentialController {
 
     @GetMapping
     public String getNotesView(Principal principal, Model model, @ModelAttribute CredentialForm credentialForm) {
-        List<Credential> credentials = new ArrayList<Credential>();
-        credentials.add(new Credential(1, "http://skuska.sk", "Palo", "key", "Super password", 1));
+        List<Credential> credentials = credentialService.provideCredentials(userService.getCurrentUserId(principal));
         model.addAttribute("credentials", credentials);
         model.addAttribute("user", principal.getName());
         return "credential";
@@ -45,8 +44,8 @@ public class CredentialController {
             RedirectAttributes redirectAttributes, Principal principal) {
 
         if (errors.hasErrors()) {
-            List<Credential> credentials = new ArrayList<Credential>();
-            credentials.add(new Credential(1, "http://skuska.sk", "Palo", "key", "Super password", 1));
+            List<Credential> credentials = credentialService
+                    .provideCredentials(userService.getCurrentUserId(principal));
             model.addAttribute("credentials", credentials);
             model.addAttribute("user", principal.getName());
             return "credential";
