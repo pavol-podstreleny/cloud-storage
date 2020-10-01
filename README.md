@@ -1,5 +1,10 @@
 # Personal file storage
-Web application that securely stores user files, notes, and credentials. The application uses an MVC pattern with server-side rendering.
+Web application that securely stores user files, notes, and credentials.
+
+The application provides the following capabilities:
+- Simple File Storage: Upload/download/remove files
+- Note Management: Add/update/remove text notes
+- Password Management: Save, edit, and delete website credentials.
 
 Following technologies were used to develop the website:
 
