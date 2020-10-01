@@ -26,10 +26,21 @@
               <a href="#" id="selected"><span id="note">Notes</span></a>
             </li>
             <li>
-              <a href="#"><span id="credential">Credentials</span></a>
+              <a th:href="@{/credentials}"
+                ><span id="credential">Credentials</span></a
+              >
             </li>
             <li>
-              <a href="#"><span id="logout">Logout</span></a>
+              <form
+                action="#"
+                th:action="@{/logout}"
+                method="POST"
+                id="logout-form"
+              >
+                <a href="#" id="logout-button"
+                  ><span id="logout">Logout</span></a
+                >
+              </form>
             </li>
           </ul>
           <img

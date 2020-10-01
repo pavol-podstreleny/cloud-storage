@@ -2,9 +2,11 @@ import NoteForm from "./note-form.js";
 import Menu from "./menu.js";
 import Toast from "./toast.js";
 import DeleteDialog from "./delete-dialog.js";
+import LogoutForm from "./logout-form.js";
 
 const menu = new Menu();
 const toast = new Toast();
+const logoutForm = new LogoutForm();
 const noteForm = new NoteForm();
 const deleteDialog = new DeleteDialog();
 
