@@ -21,8 +21,12 @@ public class CredentialForm {
     @Size(min = 3, max = 30, message = "Username can't be shorter than 3 character and longer than 30 characters")
     private String username;
 
-    private String key;
+    @NotEmpty(message = "Password field can not be empty")
+    @NotNull(message = "Password field can not be null")
+    @Size(min = 3, message = "Username can't be shorter than 3 characters")
     private String password;
+
+    private String key;
     private Integer userId;
 
 }
