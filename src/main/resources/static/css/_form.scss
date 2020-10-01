@@ -56,7 +56,6 @@ section#form {
     textarea {
       resize: vertical;
       height: 16rem;
-      margin-bottom: 2.4rem;
       padding-top: 0.8rem;
     }
 
@@ -73,4 +72,8 @@ section#form {
 }
 #login-error {
   margin-top: 0;
+}
+
+#buttons {
+  margin-top: 3.6rem;
 }
