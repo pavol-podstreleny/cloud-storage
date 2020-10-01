@@ -1,11 +1,13 @@
 import Menu from "./menu.js";
 import Toast from "./toast.js";
 import DeletionDialog from "./delete-dialog.js";
+import LogoutForm from "./logout-form.js";
 
 /* FILE LOADING */
 
 const menu = new Menu();
 const toast = new Toast();
+const logoutForm = new LogoutForm();
 const deletionDialog = new DeletionDialog();
 
 const submitButton = document.getElementById("submit-button");
