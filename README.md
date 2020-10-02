@@ -32,7 +32,7 @@ git clone https://github.com/pavol-podstreleny/cloud-storage.git
 cd cloud-storage
 ```
 #### 3) Run maven script
-Before you run following script you should download [JAVA JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) and set up `JAVA_HOME` environment variable.
+Before you run the following script, you should download [JAVA JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) and set up the `JAVA_HOME` environment variable.
 
 Windows:
 ```cmd
