@@ -1,24 +1,25 @@
 package com.pavolpodstreleny.CloudStorage.service;
 
+import com.pavolpodstreleny.CloudStorage.entity.Credential;
+import com.pavolpodstreleny.CloudStorage.entity.CredentialForm;
+import com.pavolpodstreleny.CloudStorage.mapper.CredentialMapper;
+import org.springframework.stereotype.Service;
+
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.List;
 
-import com.pavolpodstreleny.CloudStorage.entity.Credential;
-import com.pavolpodstreleny.CloudStorage.entity.CredentialForm;
-import com.pavolpodstreleny.CloudStorage.mapper.CredentialMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 @Service
 public class CredentialService {
 
-    @Autowired
-    private CredentialMapper credentialMapper;
+    private final CredentialMapper credentialMapper;
 
-    @Autowired
-    private EncryptionService encryptionService;
+    private final EncryptionService encryptionService;
+
+    public CredentialService(final CredentialMapper credentialMapper, final EncryptionService encryptionService) {
+        this.credentialMapper = credentialMapper;
+        this.encryptionService = encryptionService;
+    }
 
     public List<Credential> provideCredentials(int userId) {
         final List<Credential> credentials = credentialMapper.getCredentials(userId);

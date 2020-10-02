@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,6 +83,7 @@
           <table>
             <thead>
               <tr>
+                <th>Preview</th>
                 <th>Name</th>
                 <th>Owner</th>
                 <th>Type</th>
@@ -93,6 +94,9 @@
             </thead>
             <tbody>
               <tr th:each="item : ${files}">
+                <td><img th:src="${@previewService.getPreviewUrl(item.fileName, item.contentType)}"
+                         onerror="this.src='/img/preview/unknown.svg';"
+                         style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 64px;" alt=""/></td>
                 <td th:text="${item.fileName}">Image-skuska.png</td>
                 <td th:text="${user}">Palino</td>
                 <td th:text="${item.contentType}">12/12/2020</td>

@@ -1,11 +1,7 @@
 package com.pavolpodstreleny.CloudStorage.controller;
 
-import javax.validation.Valid;
-
 import com.pavolpodstreleny.CloudStorage.entity.User;
 import com.pavolpodstreleny.CloudStorage.service.UserService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -15,12 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/signup")
 public class SignupController {
 
-    @Autowired
-    UserService userService;
+    final UserService userService;
+
+    public SignupController(final UserService userService) {this.userService = userService;}
 
     @GetMapping
     public String getSignupPage(@ModelAttribute User user) {

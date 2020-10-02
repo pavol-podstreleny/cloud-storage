@@ -1,23 +1,24 @@
 package com.pavolpodstreleny.CloudStorage.service;
 
+import com.pavolpodstreleny.CloudStorage.entity.User;
+import com.pavolpodstreleny.CloudStorage.mapper.UserMapper;
+import org.springframework.stereotype.Service;
+
 import java.security.Principal;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-import com.pavolpodstreleny.CloudStorage.entity.User;
-import com.pavolpodstreleny.CloudStorage.mapper.UserMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 @Service
 public class UserService {
 
-    @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
-    @Autowired
-    private HashService hashService;
+    private final HashService hashService;
+
+    public UserService(final UserMapper userMapper, final HashService hashService) {
+        this.userMapper = userMapper;
+        this.hashService = hashService;
+    }
 
     public boolean isUsernameAvailable(String username) {
         return userMapper.getUser(username) == null;
