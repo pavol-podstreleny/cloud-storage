@@ -1,22 +1,20 @@
 package com.pavolpodstreleny.CloudStorage.service;
 
-import java.util.List;
-
 import com.pavolpodstreleny.CloudStorage.entity.File;
 import com.pavolpodstreleny.CloudStorage.mapper.FileMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 @Service
 @Slf4j
 public class FileService {
 
-    @Autowired
-    private FileMapper fileMapper;
+    private final FileMapper fileMapper;
+
+    public FileService(final FileMapper fileMapper) {this.fileMapper = fileMapper;}
 
     public int uploadFile(MultipartFile multipartFile, int userId) {
         File file = null;

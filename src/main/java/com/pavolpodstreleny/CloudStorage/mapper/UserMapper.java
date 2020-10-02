@@ -1,7 +1,6 @@
 package com.pavolpodstreleny.CloudStorage.mapper;
 
 import com.pavolpodstreleny.CloudStorage.entity.User;
-
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

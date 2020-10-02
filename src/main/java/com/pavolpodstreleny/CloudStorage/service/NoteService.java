@@ -1,19 +1,18 @@
 package com.pavolpodstreleny.CloudStorage.service;
 
-import java.util.List;
-
 import com.pavolpodstreleny.CloudStorage.entity.Note;
 import com.pavolpodstreleny.CloudStorage.entity.NoteForm;
 import com.pavolpodstreleny.CloudStorage.mapper.NoteMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class NoteService {
 
-    @Autowired
-    private NoteMapper noteMapper;
+    private final NoteMapper noteMapper;
+
+    public NoteService(final NoteMapper noteMapper) {this.noteMapper = noteMapper;}
 
     public List<Note> provideNotes(int userId) {
         return noteMapper.getNotes(userId);

@@ -1,5 +1,7 @@
 package com.pavolpodstreleny.CloudStorage.entity;
 
+import java.util.StringJoiner;
+
 public class File {
 
     private Integer id;
@@ -76,7 +78,7 @@ public class File {
 
     public String getProperSize() {
 
-        final double actualSize = (double) Double.parseDouble(fileSize);
+        final double actualSize = Double.parseDouble(fileSize);
         if (actualSize == 0) {
             return "1B";
         }
@@ -94,5 +96,13 @@ public class File {
 
         return String.format("%.0f B", actualSize);
 
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", File.class.getSimpleName() + "[", "]").add("id=" + id).add("fileName='" + fileName + "'")
+                                                                            .add("contentType='" + contentType + "'")
+                                                                            .add("fileSize='" + fileSize + "'")
+                                                                            .add("userId=" + userId).toString();
     }
 }

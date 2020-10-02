@@ -1,14 +1,9 @@
 package com.pavolpodstreleny.CloudStorage.controller;
 
-import java.security.Principal;
-
-import javax.servlet.http.HttpServletResponse;
-
 import com.pavolpodstreleny.CloudStorage.entity.File;
 import com.pavolpodstreleny.CloudStorage.service.FileService;
 import com.pavolpodstreleny.CloudStorage.service.UserService;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,25 +12,31 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequestMapping("/files")
 @Slf4j
 public class FileController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private FileService fileService;
+    private final FileService fileService;
+
+    public FileController(final UserService userService, final FileService fileService) {
+        this.userService = userService;
+        this.fileService = fileService;
+    }
 
     @GetMapping
     public String getFileView(Principal principal, Model model) {
         final int currentUserId = userService.getCurrentUserId(principal);
-        model.addAttribute("files", fileService.provideFiles(currentUserId));
+        List<File> files = fileService.provideFiles(currentUserId);
+        model.addAttribute("files", files);
         model.addAttribute("user", principal.getName());
-        log.info(model.getAttribute("files").toString());
+        log.info(files.toString());
         return "file";
     }
 
@@ -45,7 +46,7 @@ public class FileController {
 
         final String originalFileName = uploadedFile.getOriginalFilename();
 
-        if (originalFileName.equals("")) {
+        if ("".equals(originalFileName)) {
             redirect.addFlashAttribute("messageFail", "You have to specify name of file to upload!");
             return "redirect:/files";
         }
@@ -96,9 +97,7 @@ public class FileController {
         response.setContentType(file.getContentType());
         response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=\"" + file.getFileName() + "\"");
 
-        return outputStream -> {
-            outputStream.write(file.getData(), 0, file.getData().length);
-        };
+        return outputStream -> outputStream.write(file.getData(), 0, file.getData().length);
     }
 
 }

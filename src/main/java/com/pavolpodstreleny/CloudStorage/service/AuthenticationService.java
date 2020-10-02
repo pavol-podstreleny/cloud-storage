@@ -1,25 +1,26 @@
 package com.pavolpodstreleny.CloudStorage.service;
 
-import java.util.ArrayList;
-
 import com.pavolpodstreleny.CloudStorage.entity.User;
 import com.pavolpodstreleny.CloudStorage.mapper.UserMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class AuthenticationService implements AuthenticationProvider {
 
-    @Autowired
-    UserMapper userMapper;
+    final UserMapper userMapper;
 
-    @Autowired
-    HashService hashService;
+    final HashService hashService;
+
+    public AuthenticationService(final UserMapper userMapper, final HashService hashService) {
+        this.userMapper = userMapper;
+        this.hashService = hashService;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
