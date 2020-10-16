@@ -21,9 +21,13 @@ public class FileService {
     public int uploadFile(MultipartFile multipartFile, int userId) {
         File file = null;
         try {
-
-            file = new File(multipartFile.getOriginalFilename(), multipartFile.getContentType(),
-                    String.valueOf(multipartFile.getSize()), userId, multipartFile.getBytes());
+            file = File
+                    .builder()
+                    .fileName(multipartFile.getOriginalFilename())
+                    .contentType(multipartFile.getContentType())
+                    .fileSize(String.valueOf(multipartFile.getSize()))
+                    .userId(userId)
+                    .data(multipartFile.getBytes()).build();
         } catch (Exception e) {
             e.printStackTrace();
             log.error("Problem occured while saving data into File table");

@@ -51,8 +51,14 @@ public class CredentialService {
         // Generate encoded key
         String encodedKey = generateEncodedKey();
         String encryptedPassword = encryptionService.encryptValue(credentialForm.getPassword(), encodedKey);
-        Credential credential = new Credential(credentialForm.getUrl(), credentialForm.getUsername(), encodedKey,
-                encryptedPassword, credentialForm.getUserId());
+
+        Credential credential = Credential.builder()
+                .url(credentialForm.getUrl())
+                .userName(credentialForm.getUsername())
+                .key(encodedKey)
+                .passwordEncrypted(encryptedPassword)
+                .userId(credentialForm.getUserId()).build();
+
         return credentialMapper.insert(credential);
     }
 

@@ -1,5 +1,10 @@
 package com.pavolpodstreleny.CloudStorage.entity;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class File {
 
     private Integer id;
@@ -9,74 +14,9 @@ public class File {
     private Integer userId;
     private byte[] data;
 
-    public File(Integer id, String fileName, String contentType, String fileSize, Integer userId, byte[] data) {
-        this.id = id;
-        this.fileName = fileName;
-        this.contentType = contentType;
-        this.fileSize = fileSize;
-        this.userId = userId;
-        this.data = data;
-    }
-
-    public File(String fileName, String contentType, String fileSize, Integer userId, byte[] data) {
-        this.fileName = fileName;
-        this.contentType = contentType;
-        this.fileSize = fileSize;
-        this.userId = userId;
-        this.data = data;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getFileSize() {
-        return fileSize;
-    }
-
-    public void setFileSize(String fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
-
     public String getProperSize() {
 
-        final double actualSize = (double) Double.parseDouble(fileSize);
+        final double actualSize = Double.parseDouble(fileSize);
         if (actualSize == 0) {
             return "1B";
         }
